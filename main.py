@@ -16,15 +16,12 @@ import requests
 from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 
-
-
 load_dotenv()
 
 CLIENT_ID = os.getenv("APP_CLIENT_ID")
 CLIENT_SECRET = os.getenv("APP_CLIENT_SECRET")
 REDIRECT_URI = os.getenv("REDIRECT_URI")
 SCOPE = os.getenv("SCOPE")
-
 
 def sendEmail(bands):
   EMAIL_USERNAME = os.getenv("EMAIL_USERNAME")
@@ -56,15 +53,12 @@ def sendEmail(bands):
     print(f"Failed to send email: {e}")
 
 
-
-
-
-  
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=SCOPE, 
                                                client_id=CLIENT_ID,
                                                client_secret=CLIENT_SECRET,
                                                redirect_uri=REDIRECT_URI,
                                                cache_path=".cache"))
+
 # get data from json file
 with open('BandList.json', 'r') as file:
   jsonData = json.load(file)
