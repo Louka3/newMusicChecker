@@ -52,7 +52,6 @@ def sendEmail(bands):
   except Exception as e:
     print(f"Failed to send email: {e}")
 
-
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=SCOPE, 
                                                client_id=CLIENT_ID,
                                                client_secret=CLIENT_SECRET,
@@ -89,4 +88,4 @@ if(len(newMusic) != 0):
 with open('BandList.json', 'w') as file:
   json.dump(jsonData, file, indent=2)
 
-print("data has been updated")
+print("Data has been updated!")
